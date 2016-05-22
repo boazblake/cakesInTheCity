@@ -13,19 +13,17 @@ class Menu extends React.Component {
   	}
 
   	 let divStyleLeft = {
-  		position:'relative',
-  		left:'10px',
   		display:'inline-block',
-  		width:50+'%'
   	}
 
   	 let divStyleRight = {
-  		position:'relative',
-  		left:'10px',
   		display:'inline-block',
-  		width:50+'%'
   	}
 
+  	 let divStyleBottom = {
+  		bottom:'10px',
+  		display:'block',
+  	}
 
 
     return (
@@ -41,12 +39,12 @@ class Menu extends React.Component {
 	    		Fruit Flavored Buttercream of your choice, Fresh fruit can also be added </p>
     		</div>
     		<div className='right' style={divStyleRight}>
-    		<h1 style={divStyleHeading}>CAKE AND CUPCAKE FLAVORS</h1>
-    		<p>Chocolate, Vanilla Bean, White , Red Velvet, Almond, Strawberry, Raspberry, Lemon</p>
+	    		<h1 style={divStyleHeading}>CAKE AND CUPCAKE FLAVORS</h1>
+	    		<p>Chocolate, Vanilla Bean, White , Red Velvet, Almond, Strawberry, Raspberry, Lemon</p>
     		</div>
     		<div className='bottom'>
-    		<h3 style={divStyleHeading}>All cakes are covered in Marshmallow Fondant and
-    		are enrobed in chocolate ganache before the fondant is applied</h3>
+	    		<h3 style={divStyleHeading}>All cakes are covered in Marshmallow Fondant and
+	    		are enrobed in chocolate ganache before the fondant is applied</h3>
     		</div>
     		<Footer/>
     	</div>

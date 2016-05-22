@@ -1,7 +1,7 @@
 .navbar {
-	text-decoration: none;
    	padding: 50px 0;
    	font-size: 20px;
    	color: pink;
-   	font-family: "mf-itc-mona-lisa-215976";
+   	font-family: 'Open Sans Condensed';
+   	background-color: pink;
 }

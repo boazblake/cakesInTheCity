@@ -7,18 +7,24 @@ class Home extends React.Component {
 
   render(){
   	let divStyleLogo = {
-  		width:300 + 'px'
+  		width:300 + 'px',
+  		display: 'block'
   	}
 
   	let divStyleImg = {
   		width:300 + 'px',
-  		float:'right'
+  		float:'right',
+  		display: 'block'
+
   	}
 
 
   	let divStyleTitle = {
   		textAlign:'center',
-  		color:'pink'
+  		color:'pink',
+  		display: 'block',
+  		fontFamily: 'Frijole',
+  		fontSize: '50px'
   	}
 
 
