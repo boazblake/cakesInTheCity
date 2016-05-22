@@ -1,0 +1,3 @@
+React, ReactRouter, Webpack
+
+wither backbone or redux...
