@@ -1,14 +1,14 @@
 import React from 'react'
 
-class Menu extends React.Component {
+class Admin extends React.Component {
   render(){
     return (
     	<div>
-    		<h1>Menu</h1>
+    		<h1>Admin</h1>
     	</div>
     )
   }
 }
 
 
-export default Menu
+export default Admin

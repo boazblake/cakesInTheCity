@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {ReactRouter, Router, Route, IndexRoute, hashHistory} from 'react-router';
 
+import About from './views/About';
 import App from './App';
-import Menu from './modules/Menu';
-import Home from './modules/Home';
-import About from './modules/About';
-import Cakes from './modules/Cakes';
-import Cupcakes from './modules/Cupcakes';
+import Admin from './views/Admin';
+import Menu from './views/Menu';
+import Home from './views/Home';
+import Cakes from './views/Cakes';
+import Cupcakes from './views/Cupcakes';
 
 
 ReactDOM.render(<Router history={hashHistory}>
 					<Route path= '/' component={App}/>
 					<Route path='/menu' component={Menu}/>
+					<Route path='/admin' component={Admin}/>
 					<Route path='/home' component={Home}/>
 					<Route path='/about' component={About}/>
 					<Route path='/galleries/cakes' component={Cakes}/>
