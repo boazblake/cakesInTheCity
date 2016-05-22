@@ -2,9 +2,18 @@ import React from 'react'
 
 class Footer extends React.Component {
   render(){
+
+  	const boaz = {
+  		name:'<Boaz/>',
+  		href:'boazblake.github.io/portfolio'
+  	}
+
+
     return (
     	<div>
-    		<h1>Footer</h1>
+    	<p>Built with <span className="glyphicon glyphicon-heart"></span> 
+    	by<a href={boaz.href}> {boaz.name} </a>
+    	</p>
     	</div>
     )
   }
