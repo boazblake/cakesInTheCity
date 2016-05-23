@@ -4,7 +4,7 @@ import React from 'react'
 class NavBar extends React.Component {
   render(){
     return (
-    	<nav className="navbar navbar-light bg-faded">
+    	<nav className="navbar navbar-dark">
     		<ul className="nav navbar-nav">
     			<li className="nav-item active">
     				<a className="nav-link" href="/#home">HOME <span className="sr-only">(current)</span></a>

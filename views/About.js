@@ -12,6 +12,7 @@ class About extends React.Component {
 
 
   	let StyleImg = {
+      display: 'inline-block',
   		width:300 + 'px',
   		position: 'absoute',
   		right: 10 + 'px',
@@ -20,8 +21,10 @@ class About extends React.Component {
 
 
   	let divStyleWRapperTxt = {
+      display: 'inline-block',
   		color: 'pink',
-  		textAlign: 'center'
+  		textAlign: 'center',
+      width:50 + '%'
   	}
 
 
@@ -32,7 +35,7 @@ class About extends React.Component {
 	    		<img style={StyleImg} src='../assets/images/about_pic.jpg'/>
 	    		<br/>
 	    		<div className='txtWrapper' style={divStyleWRapperTxt}>
-		    		<email ><h1><span className="glyphicon glyphicon-envelope"></span></h1><h2>jennifer@theflourgirlcakecompany.com</h2></email>
+		    		<email ><h1><span className="glyphicon glyphicon-envelope"></span></h1><h2>Jennifer@TheFlourGirlCakeCompany.Com</h2></email>
 		    		<br/>
 		    		<tel ><h1><span className="glyphicon glyphicon-phone-alt"></span></h1><h2>832.434.6120</h2></tel>
 		    	</div>

@@ -5,7 +5,7 @@ class Footer extends React.Component {
 
   	const boaz = {
   		name:'<Boaz/>',
-  		href:'boazblake.github.io/portfolio'
+  		href:'https://boazblake.github.io/portfolio'
   	}
 
 
