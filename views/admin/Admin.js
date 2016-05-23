@@ -1,15 +1,12 @@
 import React from 'react'
 import NavBar from '../modules/header'
-import Firebase from 'firebase'
-import fbRef from './fbRef'
 
+const handleUpload = (e) => {
+	e.preventDefault();
+	alert(event.fpfile.url);
 
-let storageRef = firebase.storage().ref();
-let logoImageRef = storageRef.child('admin/images/logo.jpg');
+}
 
-
-let file = new File('../../assets/logo.jpg', 'logo')
-let uploadTask = storageRef.child('admin/images/' + logoImageRef.name).put(file)
 
 class Admin extends React.Component {
   render(){
@@ -18,6 +15,10 @@ class Admin extends React.Component {
     	<div>
     		<h1>Admin Site</h1>
     		<NavBar />
+    		<input type="filepicker"
+    				data-fp-apikey="ACOZV2bQTS2gGrnnts7IRz"
+    				onchange={handleUpload}
+    				data-fp-button-class="btn btn-primary" />
       	</div>
     )
   }
