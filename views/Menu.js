@@ -10,25 +10,32 @@ class Menu extends React.Component {
   	}
 
   	 let divStyleHeading = {
-  		color:'pink'
+  		color:'pink',
+      fontFamily:'OpenSansCondensed700'
   	}
 
   	 let divStyleLeft = {
   		display:'inline-block',
       width: 40 + '%',
-      margin: 30 + 'px'
+      margin: 30 + 'px',
+      fontFamily:'OpenSansCondensed700'
+
   	}
 
   	 let divStyleRight = {
   		display:'inline-block',
       width: 50 + '%',
-      margin: 30 + 'px'
+      margin: 30 + 'px',
+      fontFamily:'OpenSansCondensed700'
+
   	}
 
   	 let divStyleBottom = {
   		bottom:'10px',
   		display:'block',
-      margin: 30 + 'px'
+      margin: 30 + 'px',
+      fontFamily:'OpenSansCondensed700'
+      
   	}
 
 
