@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 class Uploaded extends React.Component {
 
-	componentWillUnmount() {
+	componentDidUpdate() {
 		console.log('bye-bye!!')
 	}
 

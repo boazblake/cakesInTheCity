@@ -1,4 +1,5 @@
 import React from 'react'
+import SocialMedia from './socialMedia'
 
 class Footer extends React.Component {
   render(){
@@ -19,5 +20,17 @@ class Footer extends React.Component {
   }
 }
 
+class Footer2 extends React.Component {
+  render(){
 
-export default Footer
+    return (
+      <div>
+        <SocialMedia />
+      </div>
+    )
+  }
+}
+
+
+
+export default Footer2

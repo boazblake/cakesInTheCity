@@ -7,23 +7,17 @@ let filePicker = filePickerWrapper.filepicker
 
 class Admin extends React.Component {
   
-  componentDidMount() {
-  	console.log('did mount!')
-  	ReactDOM.unmountComponentAtNode(document.querySelector('#uploadedPicPreview'))
+  componentWillMount() {
+  	this.lock = new Auth0Lock('HmrYryFPN9pkRjyb3dhLvfgdUPwwNy8i', 'cakesinthecity.auth0.com');
+  	this.lock.show()
   }
 
   render(){
     return (
 
-    	<div>
-    		<h1>Admin Site</h1>
-    		<NavBar />
-    		<input	type="filepicker" 
-    				data-fp-apikey="ACOZV2bQTS2gGrnnts7IRz"
-    				onchange={filePickerWrapper()}/>
-    				<div id='uploadedPicPreview'></div>
-      	</div>
-    )
+    	<div className="login-box">
+      <a onClick={this.showLock}>Sign In</a>
+    </div>);
   }
 }
 

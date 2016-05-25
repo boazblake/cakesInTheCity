@@ -27,7 +27,7 @@ let filePickerWrapper = () => {
 		}
 		window.filepicker=d
 	})
-
+	
 	(document);
 
 	filepicker.pick(
@@ -38,7 +38,6 @@ let filePickerWrapper = () => {
 		hide:'true'
 		},
 		function(Blob){
-			ReactDOM.unmountComponentAtNode(document.querySelector('#uploadedPicPreview'))
 			console.log(Blob.url);
 			let name = Blob.filename.split('.')[0]
 			console.log(name);
