@@ -12,15 +12,11 @@ let imgStyle = {
 }
 
 let blowUpPic = (e) => {
-	if (e.currentTarget.style.width = 100 + 'px') {
-		return (e.currentTarget.style.width = 300 + 'px', e.currentTarget.style.height = 300 + 'px')
-	}
+	return (e.currentTarget.style.width = 300 + 'px', e.currentTarget.style.height = 300 + 'px')
 }
 
 let smallMe = (e) => {
-	if (e.currentTarget.style.width = 300 + 'px') {
-		return (e.currentTarget.style.width =100 + 'px', e.currentTarget.style.height = 100 + 'px')
-	}
+	return (e.currentTarget.style.width =100 + 'px', e.currentTarget.style.height = 100 + 'px')
 }
 
 

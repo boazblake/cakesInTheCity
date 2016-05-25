@@ -1,23 +1,66 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import NavBar from '../modules/header'
-import filePickerWrapper from '../../config/filePicker'
+import filepickerWrapper from '../../config/filePicker'
 import Uploaded from '../modules/Uploaded'
-let filePicker = filePickerWrapper.filepicker
+import FileStackUpload from './_fileUpload'
+import Secrets from '../../secrets'
+
+
+filepickerWrapper()
+
+console.log('filepicker',filepicker)
+
+
 
 class Admin extends React.Component {
+
   
-  componentWillMount() {
-  	this.lock = new Auth0Lock('HmrYryFPN9pkRjyb3dhLvfgdUPwwNy8i', 'cakesinthecity.auth0.com');
-  	this.lock.show()
+  componentDidMount() {
+  	console.log('did mount!')
+  	ReactDOM.unmountComponentAtNode(document.querySelector('#store-input'))
   }
 
+  _handleUpload(Blob, domEl) {
+  	console.log('Blob', Blob)
+  	console.log('domEl', domEl)
+  	this._uploadToFileStack(domEl)
+  }
+
+  _saveToFirebase(userData, Blob){
+
+  }
+
+
+  _uploadToFileStack(imgDataEl, userData, cb){
+  	console.log('apikeyFileStack',Secrets.apikeyFileStack)
+  	filepicker.setKey(Secrets.apikeyFileStack)
+
+  	filepicker.store(
+      imgDataEl,
+      function(Blob){
+        console.log('sucessfully saved!!', Blob)
+        cb(userData, Blob)
+      },
+      function(err){
+        console.log('err', err.toString())
+      }
+    );
+  }
+  
+
   render(){
+
+
     return (
 
-    	<div className="login-box">
-      <a onClick={this.showLock}>Sign In</a>
-    </div>);
+    	<div>
+    		<h1>Admin Site</h1>
+    		<NavBar />
+    		<FileStackUpload onUpload={this._handleUpload.bind(this)}/>
+    		<div id='store-input'></div>
+      	</div>
+    )
   }
 }
 
