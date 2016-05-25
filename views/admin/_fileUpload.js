@@ -6,14 +6,13 @@ let FileStackUpload = React.createClass({
     return {
       formFieldName: React.PropTypes.string,
       onUpload: React.PropTypes.func,
-      onRemove: React.PropTypes.func
-
+      onRemove: React.PropTypes.func,
     }
   } ,
 
   getInitialState: function(){
     return {
-      flashMsg: "No file currently uploaded",
+      flashMsg: "No picture selected",
       localFileUploaded: false
     }
   },
@@ -44,17 +43,17 @@ let FileStackUpload = React.createClass({
     let uploadedFileEl = ReactDOM.findDOMNode(this.refs.filebtn) 
     let file = uploadedFileEl.files[0]
     let fileReader = new FileReader()
-    console.log(file)
+    console.log('file>>>', file)
     if (file && file.type.match('image.*')){
       fileReader.readAsDataURL(file)
-      fileReader.addEventListener('load', (blob)=>{
-        console.log(blob)
+      fileReader.addEventListener('load', (Blob)=>{
+        console.log('Blob>>>>>', Blob)
         this.setState({
           localFileUploaded: true,
-          fileInfo_imgBlob: blob,
+          fileInfo_imgBlob: Blob,
           fileInfo_file: file
         })
-        if (typeof this.props.onUpload === 'function') this.props.onUpload(blob, uploadedFileEl) 
+        if (typeof this.props.onUpload === 'function') this.props.onUpload(Blob, uploadedFileEl) 
       })
     } else {
       this.setState({
@@ -65,7 +64,7 @@ let FileStackUpload = React.createClass({
   },
 
   _handleClear: function(){
-    if (typeof this.props.onRemove === 'function') this.props.remove(blob, uploadedFileEl) 
+    if (typeof this.props.onRemove === 'function') this.props.remove(Blob, uploadedFileEl) 
 
     this.setState({
       localFileUploaded: false,
@@ -84,16 +83,17 @@ let FileStackUpload = React.createClass({
   
 
     if (localFileIsUploaded) {
-      configOps.elClassNames = "btn btn-default btn-md"
-      configOps.msgPrompt = "Select new file"
+      configOps.elClassNames = "btn btn-info btn-md"
+      configOps.msgPrompt = "SELECT A DIFFERENT PICTURE"
 
       return [
-      <button style={configOps.style} className="btn btn-danger btn-md" onClick={this._handleClear}>Remove File</button>,
+      <button style={configOps.style} className="btn btn-danger btn-md" onClick={this._handleClear}>REMOVE THIS PICTURE</button>,
+      <button style={configOps.style} className="btn btn-success btn-md" onClick={this.props.onSubmit}>SUBMIT THIS PICTURE</button>,
       this._uploadBtnJSX(configOps)
       ]
     } else {
-      configOps.elClassNames = "btn btn-warning btn-md"
-      configOps.msgPrompt = "Profile Image"
+      configOps.elClassNames = "btn btn-info btn-md"
+      configOps.msgPrompt = "UPLOAD A NEW PICTURE!"
       return (
         this._uploadBtnJSX(configOps)
       )  
@@ -124,8 +124,6 @@ let FileStackUpload = React.createClass({
   },
 
   render: function(){
-   
-
     return (
       <div>
         {this._showBtnsJSX(this.state.localFileUploaded)}      

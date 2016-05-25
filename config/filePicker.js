@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Uploaded from '../views/modules/Uploaded';
 
 let filePickerWrapper = () => {
 
@@ -30,34 +29,13 @@ let filePickerWrapper = () => {
 	
 	(document);
 
-	// filepicker.pick(
-	// 	{
-	// 	mimetype: 'image/*',
-	// 	container: 'modal',
-	// 	services: ['COMPUTER', 'FACEBOOK', 'CLOUDAPP'],
-	// 	hide:'true'
-	// 	},
-	// 	function(Blob){
-	// 		console.log(Blob.url);
-	// 		let name = Blob.filename.split('.')[0]
-	// 		console.log(name);
-	// 		ReactDOM.render(<Uploaded imgURL={Blob.url} name={name} />, document.querySelector('#uploadedPicPreview'))
-	// 	},
-	// 	function(FPError){
-	// 		console.log(FPError.toString());
-	// 	}
-	// );
-	// 
-	// 
-	
-
 
 	  filepicker.store(
 	    function(Blob){
 	      console.log("Store successful:", replaceHtmlChars(JSON.stringify(Blob)));
 	    },
 	    function(FPError) {
-	  //  console.log(FPError.toString()); - print errors to console
+	    console.log(FPError.toString());// - print errors to console
 	    });
 
 }

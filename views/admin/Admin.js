@@ -2,14 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import NavBar from '../modules/header'
 import filepickerWrapper from '../../config/filePicker'
-import Uploaded from '../modules/Uploaded'
 import FileStackUpload from './_fileUpload'
 import Secrets from '../../secrets'
 
 
 filepickerWrapper()
 
-console.log('filepicker',filepicker)
+console.log('filepicker loadd onto window', filepicker)
 
 
 
@@ -18,21 +17,31 @@ class Admin extends React.Component {
   
   componentDidMount() {
   	console.log('did mount!')
-  	ReactDOM.unmountComponentAtNode(document.querySelector('#store-input'))
   }
 
-  _handleUpload(Blob, domEl) {
-  	console.log('Blob', Blob)
+  _handleImgUpload(blob, domEl) {
+  	console.log('blob', blob)
   	console.log('domEl', domEl)
-  	this._uploadToFileStack(domEl)
+  	this.setState({
+  	  uploadedImgEl: domEl,
+  	  uploadedBlob:blob
+  	})
   }
 
-  _saveToFirebase(userData, Blob){
 
+  // executed as an event listener on a 'finalize entry' button 
+  _createRecord(){
+  	let productData =  this.state.blob
+ 
+  	this._uploadToFileStack(
+  		this.state.uploadedImgEl, 
+  		productData, 
+  		this._saveToFirebase
+  	)
   }
+ 
 
-
-  _uploadToFileStack(imgDataEl, userData, cb){
+  _uploadToFileStack(imgDataEl, productData, cb){
   	console.log('apikeyFileStack',Secrets.apikeyFileStack)
   	filepicker.setKey(Secrets.apikeyFileStack)
 
@@ -40,13 +49,20 @@ class Admin extends React.Component {
       imgDataEl,
       function(Blob){
         console.log('sucessfully saved!!', Blob)
-        cb(userData, Blob)
+        cb(productData, Blob)
       },
       function(err){
         console.log('err', err.toString())
       }
     );
   }
+
+   _saveToFirebase(productData, Blob){
+  	productData.imgLink = Blob.url
+
+  	// ??ref.save(productData)?? to firebase
+  }
+
   
 
   render(){
@@ -57,7 +73,7 @@ class Admin extends React.Component {
     	<div>
     		<h1>Admin Site</h1>
     		<NavBar />
-    		<FileStackUpload onUpload={this._handleUpload.bind(this)}/>
+    		<FileStackUpload onSubmit={this._createRecord.bind(this)} onUpload={this._handleImgUpload.bind(this)}/>
     		<div id='store-input'></div>
       	</div>
     )
