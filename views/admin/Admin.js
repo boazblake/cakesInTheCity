@@ -5,20 +5,12 @@ import filepickerWrapper from '../../config/filePicker'
 import FileStackUpload from './_fileUpload'
 import Secrets from '../../secrets'
 
-
 filepickerWrapper()
 
 console.log('filepicker loadd onto window', filepicker)
 
-
-
 class Admin extends React.Component {
-
   
-  componentDidMount() {
-  	console.log('did mount!')
-  }
-
   _handleImgUpload(blob, domEl) {
   	console.log('blob', blob)
   	console.log('domEl', domEl)
@@ -28,10 +20,8 @@ class Admin extends React.Component {
   	})
   }
 
-
-  // executed as an event listener on a 'finalize entry' button 
   _createRecord(){
-  	let productData =  this.state.blob
+  	let productData =  this.state.uploadedBlob
  
   	this._uploadToFileStack(
   		this.state.uploadedImgEl, 
@@ -40,7 +30,6 @@ class Admin extends React.Component {
   	)
   }
  
-
   _uploadToFileStack(imgDataEl, productData, cb){
   	console.log('apikeyFileStack',Secrets.apikeyFileStack)
   	filepicker.setKey(Secrets.apikeyFileStack)
@@ -49,7 +38,12 @@ class Admin extends React.Component {
       imgDataEl,
       function(Blob){
         console.log('sucessfully saved!!', Blob)
+        console.log('imgDataEl!!', imgDataEl)
         cb(productData, Blob)
+        
+/////chnage state of _fileuplaod to display ""succesfully uplaoded
+
+
       },
       function(err){
         console.log('err', err.toString())
@@ -57,24 +51,22 @@ class Admin extends React.Component {
     );
   }
 
-   _saveToFirebase(productData, Blob){
-  	productData.imgLink = Blob.url
-
-  	// ??ref.save(productData)?? to firebase
+  _saveToFirebase(productData, Blob){
+    productData.imgLink = Blob.url
+    productData.size = Blob.size/1000
+    productData.name = Blob.filename
+    console.log('productData for firebase', productData)
+    console.log('Blob', Blob)
+    // ??ref.save(productData)?? to firebase
   }
 
-  
-
   render(){
-
-
     return (
-
     	<div>
     		<h1>Admin Site</h1>
     		<NavBar />
     		<FileStackUpload onSubmit={this._createRecord.bind(this)} onUpload={this._handleImgUpload.bind(this)}/>
-    		<div id='store-input'></div>
+    		<div id='previewImg'></div>
       	</div>
     )
   }

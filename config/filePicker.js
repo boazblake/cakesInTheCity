@@ -35,7 +35,7 @@ let filePickerWrapper = () => {
 	      console.log("Store successful:", replaceHtmlChars(JSON.stringify(Blob)));
 	    },
 	    function(FPError) {
-	    console.log(FPError.toString());// - print errors to console
+	    	console.log(FPError.toString());// - print errors to console
 	    });
 
 }

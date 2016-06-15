@@ -4,8 +4,14 @@ import React from 'react'
 class NavBar extends React.Component {
   render(){
     return (
-    	<nav className="navbar navbar-dark">
-    		<ul className="nav navbar-nav">
+    	<nav className="navbar navbar-warning">
+    		<ul className="nav navbar-nav container-fluid">
+            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+            </button>
     			<li className="nav-item active">
     				<a className="nav-link" href="/#home">HOME <span className="sr-only">(current)</span></a>
     			</li>

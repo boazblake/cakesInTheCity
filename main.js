@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {ReactRouter, Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import About from './views/About';
-import App from './App';
 import Admin from './views/admin/Admin';
 import Menu from './views/Menu';
 import Home from './views/Home';

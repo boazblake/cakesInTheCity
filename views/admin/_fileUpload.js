@@ -13,7 +13,9 @@ let FileStackUpload = React.createClass({
   getInitialState: function(){
     return {
       flashMsg: "No picture selected",
+      // successMsg: "Image succesfully uploaded!",
       localFileUploaded: false
+      // successUploaded: false
     }
   },
 
@@ -55,12 +57,12 @@ let FileStackUpload = React.createClass({
         })
         if (typeof this.props.onUpload === 'function') this.props.onUpload(Blob, uploadedFileEl) 
       })
+
     } else {
       this.setState({
         flashMsg: "Not valid file type"
       })
     }
-    
   },
 
   _handleClear: function(){
@@ -71,7 +73,6 @@ let FileStackUpload = React.createClass({
       fileInfo_imgBlob: '',
       fileInfo_file: ''
     })
-
   },
 
   _showBtnsJSX: function(localFileIsUploaded){
@@ -103,14 +104,14 @@ let FileStackUpload = React.createClass({
   _showLoadedFile: function(localFileIsUploaded){
     if(localFileIsUploaded && this.state.fileInfo_imgBlob){
       return (
-        <div style={{margin: "12px 0 0 0"}}>
+        <div id='previewImg' style={{margin: "12px 0 0 0"}}>
           <h6 className="bg-warning" style={{padding: "5px"}}>
             {this.state.fileInfo_file.name} 
             &nbsp;&nbsp;
             <span className="text-muted">({Math.round(this.state.fileInfo_file.size/1000)} KB)</span>
           </h6>
           <img
-            style={{maxWidth: "100%", display: "block"}} 
+            style={{maxWidth: "400px", display: "block"}} 
             src={this.state.fileInfo_imgBlob.target.result}/>
         </div> 
       )

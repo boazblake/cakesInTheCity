@@ -35,7 +35,7 @@ class About extends React.Component {
 	    		<div className='txtWrapper' style={divStyleWRapperTxt}>
 		    		<email ><h1><span className="glyphicon glyphicon-envelope"></span></h1><h2>Jennifer@TheFlourGirlCakeCompany.Com</h2></email>
 		    		<br/>
-		    		<tel ><h1><span className="glyphicon glyphicon-phone-alt"></span></h1><h2>832.434.6120</h2></tel>
+		    		<tel ><h1><span className="glyphicon glyphicon-phone"></span></h1><h2>832.434.6120</h2></tel>
             <br/>
 		    	</div>
 	    	</div>

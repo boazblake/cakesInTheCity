@@ -1,7 +1,1 @@
-.navbar {
-   	padding: 50px 0;
-   	font-size: 20px;
-   	color: pink;
-   	font-family: 'Open Sans Condensed';
-   	/* background-color: pink; */
-}
+@import '../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
